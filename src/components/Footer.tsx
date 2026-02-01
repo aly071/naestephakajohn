@@ -3,7 +3,7 @@ import { Heart, Instagram, Facebook } from "lucide-react";
 
 export const Footer = () => {
   return (
-    <footer className="py-12 bg-secondary text-foreground relative overflow-hidden">
+    <footer className="py-12 relative overflow-hidden" style={{ backgroundColor: '#bed1f3' }}>
       {/* Decorative Pattern */}
       <div
         className="absolute inset-0 opacity-10"

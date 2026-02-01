@@ -35,7 +35,7 @@ export const RSVPSection = () => {
         <div
           className="absolute inset-0"
           style={{
-            backgroundImage: `url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M50 50m-40 0a40,40 0 1,0 80,0a40,40 0 1,0 -80,0' fill='none' stroke='%23A86523' stroke-width='0.5'/%3E%3C/svg%3E")`,
+            backgroundImage: `url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M50 50m-40 0a40,40 0 1,0 80,0a40,40 0 1,0 -80,0' fill='none' stroke='%236B8CC9' stroke-width='0.5'/%3E%3C/svg%3E")`,
             backgroundSize: "100px 100px",
           }}
         />
@@ -52,7 +52,7 @@ export const RSVPSection = () => {
           <p className="font-sans text-sm tracking-[0.3em] uppercase text-muted-foreground mb-4">
             Kindly Respond
           </p>
-          <h2 className="font-script text-5xl md:text-7xl text-primary mb-6">
+          <h2 className="font-script text-5xl md:text-7xl mb-6" style={{ color: 'hsl(216, 60%, 55%)' }}>
             RSVP
           </h2>
           <p className="font-serif text-lg text-foreground/70 max-w-xl mx-auto">
@@ -68,7 +68,7 @@ export const RSVPSection = () => {
         >
           <form
             onSubmit={handleSubmit}
-            className="bg-background rounded-2xl p-8 shadow-elegant border border-gold-light/20"
+            className="bg-background rounded-2xl p-8 shadow-elegant border border-secondary/30"
           >
             <div className="space-y-6">
               <div className="grid sm:grid-cols-2 gap-4">
@@ -79,7 +79,7 @@ export const RSVPSection = () => {
                   <Input
                     id="firstName"
                     required
-                    className="bg-card border-gold-light/30 focus:border-primary"
+                    className="bg-card border-secondary/40 focus:border-primary"
                     placeholder="John"
                   />
                 </div>
@@ -90,7 +90,7 @@ export const RSVPSection = () => {
                   <Input
                     id="lastName"
                     required
-                    className="bg-card border-gold-light/30 focus:border-primary"
+                    className="bg-card border-secondary/40 focus:border-primary"
                     placeholder="Doe"
                   />
                 </div>
@@ -104,7 +104,7 @@ export const RSVPSection = () => {
                   id="email"
                   type="email"
                   required
-                  className="bg-card border-gold-light/30 focus:border-primary"
+                  className="bg-card border-secondary/40 focus:border-primary"
                   placeholder="john@example.com"
                 />
               </div>
@@ -137,7 +137,7 @@ export const RSVPSection = () => {
                   min="1"
                   max="5"
                   defaultValue="1"
-                  className="bg-card border-gold-light/30 focus:border-primary"
+                  className="bg-card border-secondary/40 focus:border-primary"
                 />
               </div>
 
@@ -147,7 +147,7 @@ export const RSVPSection = () => {
                 </Label>
                 <Textarea
                   id="dietary"
-                  className="bg-card border-gold-light/30 focus:border-primary resize-none"
+                  className="bg-card border-secondary/40 focus:border-primary resize-none"
                   placeholder="Please let us know of any allergies or dietary requirements..."
                   rows={3}
                 />
@@ -159,7 +159,7 @@ export const RSVPSection = () => {
                 </Label>
                 <Textarea
                   id="message"
-                  className="bg-card border-gold-light/30 focus:border-primary resize-none"
+                  className="bg-card border-secondary/40 focus:border-primary resize-none"
                   placeholder="Share your wishes..."
                   rows={3}
                 />
@@ -168,7 +168,7 @@ export const RSVPSection = () => {
               <Button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full bg-gradient-gold hover:opacity-90 text-primary-foreground font-sans tracking-wide py-6 transition-all duration-300"
+                className="w-full bg-primary hover:bg-primary/80 text-foreground font-sans tracking-wide py-6 transition-all duration-300"
               >
                 {isSubmitting ? (
                   <span className="flex items-center gap-2">

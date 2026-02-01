@@ -39,7 +39,7 @@ export const GallerySection = () => {
           <p className="font-sans text-sm tracking-[0.3em] uppercase text-muted-foreground mb-4">
             Captured Moments
           </p>
-          <h2 className="font-script text-5xl md:text-7xl text-primary mb-6">
+          <h2 className="font-script text-5xl md:text-7xl mb-6" style={{ color: 'hsl(216, 60%, 55%)' }}>
             Our Gallery
           </h2>
           <p className="font-serif text-lg text-foreground/70 max-w-xl mx-auto mb-8">
@@ -49,7 +49,7 @@ export const GallerySection = () => {
           <Button
             onClick={handleUpload}
             variant="outline"
-            className="border-primary text-primary hover:bg-primary hover:text-primary-foreground transition-all duration-300"
+            className="border-secondary text-foreground hover:bg-primary hover:text-foreground transition-all duration-300"
           >
             <Upload className="w-4 h-4 mr-2" />
             Upload Your Photos
@@ -72,8 +72,8 @@ export const GallerySection = () => {
                 alt={image.alt}
                 className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
               />
-              <div className="absolute inset-0 bg-primary/0 group-hover:bg-primary/20 transition-colors duration-300 flex items-center justify-center">
-                <Camera className="w-8 h-8 text-primary-foreground opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              <div className="absolute inset-0 bg-primary/0 group-hover:bg-primary/30 transition-colors duration-300 flex items-center justify-center">
+                <Camera className="w-8 h-8 text-foreground opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               </div>
             </motion.div>
           ))}
@@ -86,11 +86,11 @@ export const GallerySection = () => {
           transition={{ duration: 0.6, delay: 0.6 }}
           className="text-center mt-12"
         >
-          <div className="inline-flex items-center gap-2 bg-gold-cream/50 px-6 py-3 rounded-full">
-            <Heart className="w-4 h-4 text-primary" />
+          <div className="inline-flex items-center gap-2 bg-primary/30 px-6 py-3 rounded-full">
+            <Heart className="w-4 h-4 text-foreground" />
             <p className="font-sans text-sm text-foreground/80">
               Share your wedding photos with us using{" "}
-              <span className="text-primary font-medium">#JohnAndStephanie2025</span>
+              <span className="font-medium" style={{ color: 'hsl(216, 60%, 55%)' }}>#JohnAndStephanie2025</span>
             </p>
           </div>
         </motion.div>

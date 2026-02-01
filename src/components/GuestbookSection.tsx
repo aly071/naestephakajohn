@@ -57,7 +57,7 @@ export const GuestbookSection = () => {
           <p className="font-sans text-sm tracking-[0.3em] uppercase text-muted-foreground mb-4">
             Leave Your Wishes
           </p>
-          <h2 className="font-script text-5xl md:text-7xl text-primary mb-6">
+          <h2 className="font-script text-5xl md:text-7xl mb-6" style={{ color: 'hsl(216, 60%, 55%)' }}>
             Guestbook
           </h2>
           <p className="font-serif text-lg text-foreground/70 max-w-xl mx-auto">
@@ -75,7 +75,7 @@ export const GuestbookSection = () => {
           >
             <form
               onSubmit={handleSubmit}
-              className="bg-background rounded-2xl p-8 shadow-elegant border border-gold-light/20"
+              className="bg-background rounded-2xl p-8 shadow-elegant border border-secondary/30"
             >
               <h3 className="font-serif text-2xl text-foreground mb-6 flex items-center gap-3">
                 <MessageCircle className="w-6 h-6 text-primary" />
@@ -90,7 +90,7 @@ export const GuestbookSection = () => {
                   <Input
                     id="guestName"
                     required
-                    className="bg-card border-gold-light/30 focus:border-primary"
+                    className="bg-card border-secondary/40 focus:border-primary"
                     placeholder="Your name"
                   />
                 </div>
@@ -102,7 +102,7 @@ export const GuestbookSection = () => {
                   <Input
                     id="guestEmail"
                     type="email"
-                    className="bg-card border-gold-light/30 focus:border-primary"
+                    className="bg-card border-secondary/40 focus:border-primary"
                     placeholder="your@email.com"
                   />
                 </div>
@@ -114,7 +114,7 @@ export const GuestbookSection = () => {
                   <Textarea
                     id="guestMessage"
                     required
-                    className="bg-card border-gold-light/30 focus:border-primary resize-none"
+                    className="bg-card border-secondary/40 focus:border-primary resize-none"
                     placeholder="Share your blessings and wishes..."
                     rows={5}
                   />
@@ -123,7 +123,7 @@ export const GuestbookSection = () => {
                 <Button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full bg-gradient-gold hover:opacity-90 text-primary-foreground font-sans tracking-wide py-6 transition-all duration-300"
+                  className="w-full bg-primary hover:bg-primary/80 text-foreground font-sans tracking-wide py-6 transition-all duration-300"
                 >
                   {isSubmitting ? (
                     <span className="flex items-center gap-2">
@@ -141,7 +141,7 @@ export const GuestbookSection = () => {
             </form>
 
             {/* Contact Info */}
-            <div className="mt-8 bg-background rounded-2xl p-6 shadow-soft border border-gold-light/20">
+            <div className="mt-8 bg-background rounded-2xl p-6 shadow-soft border border-secondary/30">
               <h4 className="font-serif text-lg text-foreground mb-4">
                 Questions? Contact Us
               </h4>
@@ -184,7 +184,7 @@ export const GuestbookSection = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.5, delay: 0.4 + index * 0.1 }}
-                className="bg-background rounded-xl p-6 shadow-soft border border-gold-light/20"
+                className="bg-background rounded-xl p-6 shadow-soft border border-secondary/30"
               >
                 <div className="flex items-start justify-between mb-3">
                   <h4 className="font-serif text-lg text-foreground">

@@ -55,7 +55,7 @@ export const OurStorySection = () => {
           <p className="font-sans text-sm tracking-[0.3em] uppercase text-muted-foreground mb-4">
             How It All Began
           </p>
-          <h2 className="font-script text-5xl md:text-7xl text-primary mb-6">
+          <h2 className="font-script text-5xl md:text-7xl mb-6" style={{ color: 'hsl(216, 60%, 55%)' }}>
             Our Story
           </h2>
           <p className="font-serif text-lg md:text-xl text-foreground/70 max-w-2xl mx-auto leading-relaxed">
@@ -76,11 +76,11 @@ export const OurStorySection = () => {
             >
               {/* Timeline Line */}
               <div className="flex flex-col items-center">
-                <div className="w-12 h-12 rounded-full bg-gradient-gold flex items-center justify-center shadow-elegant">
-                  <item.icon className="w-5 h-5 text-primary-foreground" />
+                <div className="w-12 h-12 rounded-full bg-primary flex items-center justify-center shadow-elegant">
+                  <item.icon className="w-5 h-5 text-foreground" />
                 </div>
                 {index < timeline.length - 1 && (
-                  <div className="w-0.5 flex-1 bg-gradient-to-b from-gold to-gold-light/30 mt-4" />
+                  <div className="w-0.5 flex-1 bg-gradient-to-b from-primary to-secondary/30 mt-4" />
                 )}
               </div>
 

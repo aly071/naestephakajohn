@@ -42,7 +42,7 @@ export const EventDetailsSection = () => {
           <p className="font-sans text-sm tracking-[0.3em] uppercase text-muted-foreground mb-4">
             Join Our Celebration
           </p>
-          <h2 className="font-script text-5xl md:text-7xl text-primary mb-6">
+          <h2 className="font-script text-5xl md:text-7xl mb-6" style={{ color: 'hsl(216, 60%, 55%)' }}>
             Event Details
           </h2>
           <p className="font-serif text-lg text-foreground/70 max-w-xl mx-auto">
@@ -57,7 +57,7 @@ export const EventDetailsSection = () => {
               initial={{ opacity: 0, y: 40 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: index * 0.2 }}
-              className="bg-card rounded-2xl p-8 shadow-elegant border border-gold-light/20 hover:border-gold-light/40 transition-all duration-300"
+              className="bg-card rounded-2xl p-8 shadow-elegant border border-secondary/30 hover:border-primary/40 transition-all duration-300"
             >
               <h3 className="font-serif text-2xl md:text-3xl text-foreground mb-6 text-center">
                 {event.title}
@@ -65,8 +65,8 @@ export const EventDetailsSection = () => {
 
               <div className="space-y-4">
                 <div className="flex items-start gap-4">
-                  <div className="w-10 h-10 rounded-full bg-gold-cream flex items-center justify-center flex-shrink-0">
-                    <Calendar className="w-5 h-5 text-primary" />
+                  <div className="w-10 h-10 rounded-full bg-primary/40 flex items-center justify-center flex-shrink-0">
+                    <Calendar className="w-5 h-5 text-foreground" />
                   </div>
                   <div>
                     <p className="font-sans text-sm text-muted-foreground uppercase tracking-wide">
@@ -79,8 +79,8 @@ export const EventDetailsSection = () => {
                 </div>
 
                 <div className="flex items-start gap-4">
-                  <div className="w-10 h-10 rounded-full bg-gold-cream flex items-center justify-center flex-shrink-0">
-                    <Clock className="w-5 h-5 text-primary" />
+                  <div className="w-10 h-10 rounded-full bg-primary/40 flex items-center justify-center flex-shrink-0">
+                    <Clock className="w-5 h-5 text-foreground" />
                   </div>
                   <div>
                     <p className="font-sans text-sm text-muted-foreground uppercase tracking-wide">
@@ -93,8 +93,8 @@ export const EventDetailsSection = () => {
                 </div>
 
                 <div className="flex items-start gap-4">
-                  <div className="w-10 h-10 rounded-full bg-gold-cream flex items-center justify-center flex-shrink-0">
-                    <MapPin className="w-5 h-5 text-primary" />
+                  <div className="w-10 h-10 rounded-full bg-primary/40 flex items-center justify-center flex-shrink-0">
+                    <MapPin className="w-5 h-5 text-foreground" />
                   </div>
                   <div>
                     <p className="font-sans text-sm text-muted-foreground uppercase tracking-wide">
@@ -110,8 +110,8 @@ export const EventDetailsSection = () => {
                 </div>
 
                 <div className="flex items-start gap-4">
-                  <div className="w-10 h-10 rounded-full bg-gold-cream flex items-center justify-center flex-shrink-0">
-                    <Shirt className="w-5 h-5 text-primary" />
+                  <div className="w-10 h-10 rounded-full bg-primary/40 flex items-center justify-center flex-shrink-0">
+                    <Shirt className="w-5 h-5 text-foreground" />
                   </div>
                   <div>
                     <p className="font-sans text-sm text-muted-foreground uppercase tracking-wide">

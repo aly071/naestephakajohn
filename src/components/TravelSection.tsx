@@ -3,22 +3,22 @@ import { useRef } from "react";
 import { MapPin, Hotel, Plane, Car } from "lucide-react";
 
 const accommodations = [
-  {
-    name: "Manila Hotel",
-    description: "Our reception venue - Special rates for wedding guests",
-    distance: "0 min from reception",
-  },
-  {
-    name: "Diamond Hotel",
-    description: "Luxury accommodations with city views",
-    distance: "5 min drive",
-  },
-  {
-    name: "Sofitel Philippine Plaza",
-    description: "Beachfront resort along Manila Bay",
-    distance: "10 min drive",
-  },
-];
+{
+  name: "Manila Hotel",
+  description: "Our reception venue - Special rates for wedding guests",
+  distance: "0 min from reception"
+},
+{
+  name: "Diamond Hotel",
+  description: "Luxury accommodations with city views",
+  distance: "5 min drive"
+},
+{
+  name: "Sofitel Philippine Plaza",
+  description: "Beachfront resort along Manila Bay",
+  distance: "10 min drive"
+}];
+
 
 export const TravelSection = () => {
   const ref = useRef(null);
@@ -32,12 +32,12 @@ export const TravelSection = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8 }}
-          className="text-center mb-12"
-        >
+          className="text-center mb-12">
+
           <p className="font-sans text-sm tracking-[0.3em] uppercase text-muted-foreground mb-4">
             Getting There
           </p>
-          <h2 className="font-script text-5xl md:text-7xl text-primary mb-6">
+          <h2 className="font-script text-5xl md:text-7xl mb-6 text-[#b49350]" style={{ color: 'hsl(216, 60%, 55%)' }}>
             Travel & Stay
           </h2>
           <p className="font-serif text-lg text-foreground/70 max-w-xl mx-auto">
@@ -51,9 +51,9 @@ export const TravelSection = () => {
             initial={{ opacity: 0, x: -30 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="order-2 lg:order-1"
-          >
-            <div className="bg-card rounded-2xl overflow-hidden shadow-elegant border border-gold-light/20 h-full min-h-[400px]">
+            className="order-2 lg:order-1">
+
+            <div className="bg-card rounded-2xl overflow-hidden shadow-elegant border border-secondary/30 h-full min-h-[400px]">
               <iframe
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3861.5089778498493!2d120.97541687583894!3d14.582044485896773!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3397ca2116a8b3c3%3A0x9f75a08b0f7f6de9!2sThe%20Manila%20Hotel!5e0!3m2!1sen!2sph!4v1703000000000!5m2!1sen!2sph"
                 width="100%"
@@ -62,8 +62,8 @@ export const TravelSection = () => {
                 allowFullScreen
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
-                title="Wedding Venue Location"
-              />
+                title="Wedding Venue Location" />
+
             </div>
           </motion.div>
 
@@ -72,10 +72,10 @@ export const TravelSection = () => {
             initial={{ opacity: 0, x: 30 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.3 }}
-            className="order-1 lg:order-2 space-y-6"
-          >
+            className="order-1 lg:order-2 space-y-6">
+
             {/* Transportation */}
-            <div className="bg-card rounded-2xl p-6 shadow-soft border border-gold-light/20">
+            <div className="bg-card rounded-2xl p-6 shadow-soft border border-secondary/30">
               <h3 className="font-serif text-xl text-foreground mb-4 flex items-center gap-3">
                 <Plane className="w-5 h-5 text-primary" />
                 Getting Here
@@ -101,19 +101,19 @@ export const TravelSection = () => {
             </div>
 
             {/* Accommodations */}
-            <div className="bg-card rounded-2xl p-6 shadow-soft border border-gold-light/20">
+            <div className="bg-card rounded-2xl p-6 shadow-soft border border-secondary/30">
               <h3 className="font-serif text-xl text-foreground mb-4 flex items-center gap-3">
                 <Hotel className="w-5 h-5 text-primary" />
                 Where to Stay
               </h3>
               <div className="space-y-4">
-                {accommodations.map((hotel, index) => (
-                  <div
-                    key={hotel.name}
-                    className="flex items-start gap-3 pb-4 border-b border-border last:border-0 last:pb-0"
-                  >
-                    <div className="w-8 h-8 rounded-full bg-gold-cream flex items-center justify-center flex-shrink-0">
-                      <span className="font-serif text-primary font-medium">
+                {accommodations.map((hotel, index) =>
+                <div
+                  key={hotel.name}
+                  className="flex items-start gap-3 pb-4 border-b border-border last:border-0 last:pb-0">
+
+                    <div className="w-8 h-8 rounded-full bg-primary/40 flex items-center justify-center flex-shrink-0">
+                      <span className="font-serif text-foreground font-medium">
                         {index + 1}
                       </span>
                     </div>
@@ -130,12 +130,12 @@ export const TravelSection = () => {
                       </p>
                     </div>
                   </div>
-                ))}
+                )}
               </div>
             </div>
           </motion.div>
         </div>
       </div>
-    </section>
-  );
+    </section>);
+
 };

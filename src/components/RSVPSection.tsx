@@ -16,29 +16,24 @@ export const RSVPSection = () => {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsSubmitting(true);
-  
-    const form = e.target as HTMLFormElement;
+
+    const form = e.currentTarget;
     const formData = new FormData(form);
-  
+
     try {
       await fetch(
         "https://docs.google.com/forms/d/e/1ubSjUYtalRQfDXTM4ziyWePVNXAUy7SO26MPY_s93no/formResponse",
-        {
-          method: "POST",
-          body: formData,
-          mode: "no-cors",
-        }
+        { method: "POST", body: formData, mode: "no-cors" }
       );
-  
+
       toast.success("Thank you for your RSVP!", {
-        description: "We look forward to celebrating with you!",
+        description: "We look forward to celebrating with you!"
       });
-  
       form.reset();
     } catch {
       toast.error("Something went wrong. Please try again.");
     }
-  
+
     setIsSubmitting(false);
   };
 
@@ -49,8 +44,8 @@ export const RSVPSection = () => {
         <div
           className="absolute inset-0"
           style={{
-            backgroundImage: `url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M50 50m-40 0a40,40 0 1,0 80,0a40,40 0 1,0 -80,0' fill='none' stroke='%23A86523' stroke-width='0.5'/%3E%3C/svg%3E")`,
-            backgroundSize: "100px 100px",
+            backgroundImage: `url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M50 50m-40 0a40,40 0 1,0 80,0a40,40 0 1,0 -80,0' fill='none' stroke='%236B8CC9' stroke-width='0.5'/%3E%3C/svg%3E")`,
+            backgroundSize: "100px 100px"
           }}
         />
       </div>
@@ -66,7 +61,7 @@ export const RSVPSection = () => {
           <p className="font-sans text-sm tracking-[0.3em] uppercase text-muted-foreground mb-4">
             Kindly Respond
           </p>
-          <h2 className="font-script text-5xl md:text-7xl text-primary mb-6">
+          <h2 className="font-script text-5xl md:text-7xl mb-6" style={{ color: 'hsl(216, 60%, 55%)' }}>
             RSVP
           </h2>
           <p className="font-serif text-lg text-foreground/70 max-w-xl mx-auto">
@@ -82,98 +77,99 @@ export const RSVPSection = () => {
         >
           <form
             onSubmit={handleSubmit}
-            className="bg-background rounded-2xl p-8 shadow-elegant border border-gold-light/20"
+            className="bg-background rounded-2xl p-8 shadow-elegant border border-secondary/30"
           >
             <div className="space-y-6">
               <div className="grid sm:grid-cols-2 gap-4">
                 <div className="space-y-2">
-                  <Label htmlFor="firstName" className="font-sans text-sm">
-                    First Name *
-                  </Label>
+                  <Label htmlFor="firstName" className="font-sans text-sm">First Name *</Label>
                   <Input
                     id="firstName"
                     name="entry.1498135098"
                     required
+                    className="bg-card border-gold-light/30 focus:border-primary"
                     placeholder="John"
                   />  
                 </div>
                 <div className="space-y-2">
-                  <Label htmlFor="lastName" className="font-sans text-sm">
-                    Last Name *
-                  </Label>
+                  <Label htmlFor="lastName" className="font-sans text-sm">Last Name *</Label>
                   <Input
                     id="lastName"
                     name="entry.1155229246"
                     required
+                    className="bg-card border-gold-light/30 focus:border-primary"
                     placeholder="Doe"
                   />
                 </div>
               </div>
 
               <div className="space-y-2">
-                <Label htmlFor="email" className="font-sans text-sm">
-                  Email Address *
-                </Label>
+                <Label htmlFor="email" className="font-sans text-sm">Email Address *</Label>
                 <Input
                   id="email"
                   name="entry.719487143"
                   type="email"
                   required
+                  className="bg-card border-gold-light/30 focus:border-primary"
+                  placeholder="john@example.com"
                 />
               </div>
 
               <div className="space-y-3">
                 <Label className="font-sans text-sm">Will you be attending? *</Label>
                 <RadioGroup defaultValue="yes" className="flex gap-6">
-                <RadioGroupItem
-                  value="yes"
-                  id="attending-yes"
-                  name="entry.877086558"
-                />
-                <RadioGroupItem
-                  value="no"
-                  id="attending-no"
-                  name="entry.877086558"
-                />
-              </RadioGroup>
+                  <div className="flex items-center space-x-2">
+                    <RadioGroupItem value="yes" id="attending-yes" />
+                    <Label htmlFor="attending-yes" className="font-sans cursor-pointer">
+                      Joyfully Accept
+                    </Label>
+                  </div>
+                  <div className="flex items-center space-x-2">
+                    <RadioGroupItem value="no" id="attending-no" />
+                    <Label htmlFor="attending-no" className="font-sans cursor-pointer">
+                      Regretfully Decline
+                    </Label>
+                  </div>
+                </RadioGroup>
               </div>
 
               <div className="space-y-2">
                 <Label htmlFor="guests" className="font-sans text-sm">
                   Number of Guests
                 </Label>
-                  <Input
+                <Input
                   id="guests"
                   name="entry.953371016"
                   type="number"
                   defaultValue="1"
+                  className="bg-card border-gold-light/30 focus:border-primary"
                 />
               </div>
 
               <div className="space-y-2">
-                <Label htmlFor="dietary" className="font-sans text-sm">
-                  Dietary Restrictions
-                </Label>
+                <Label htmlFor="dietary" className="font-sans text-sm">Dietary Restrictions</Label>
                 <Textarea
                   id="dietary"
-                  name="entry.437024174"
+                  className="bg-card border-gold-light/30 focus:border-primary resize-none"
+                  placeholder="Please let us know of any allergies or dietary requirements..."
+                  rows={3}
                 />
               </div>
 
               <div className="space-y-2">
-                <Label htmlFor="message" className="font-sans text-sm">
-                  Message to the Couple (Optional)
-                </Label>
+                <Label htmlFor="message" className="font-sans text-sm">Message to the Couple (Optional)</Label>
                 <Textarea
                   id="message"
-                  name="entry.2606285"
+                  className="bg-card border-gold-light/30 focus:border-primary resize-none"
+                  placeholder="Share your wishes..."
+                  rows={3}
                 />
               </div>
 
               <Button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full bg-gradient-gold hover:opacity-90 text-primary-foreground font-sans tracking-wide py-6 transition-all duration-300"
+                className="w-full bg-primary hover:bg-primary/80 text-foreground font-sans tracking-wide py-6 transition-all duration-300"
               >
                 {isSubmitting ? (
                   <span className="flex items-center gap-2">

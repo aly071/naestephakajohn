@@ -8,22 +8,22 @@ import { toast } from "sonner";
 import { Send, Heart, MessageCircle, Mail, Phone } from "lucide-react";
 
 const sampleMessages = [
-  {
-    name: "Maria & Carlos",
-    message: "Wishing you a lifetime of love and happiness! Can't wait to celebrate with you!",
-    date: "2 days ago",
-  },
-  {
-    name: "The Garcia Family",
-    message: "Congratulations to the most beautiful couple! Your love story inspires us all.",
-    date: "1 week ago",
-  },
-  {
-    name: "Anna Santos",
-    message: "So happy for both of you! May your marriage be filled with endless joy and adventure.",
-    date: "2 weeks ago",
-  },
-];
+{
+  name: "Maria & Carlos",
+  message: "Wishing you a lifetime of love and happiness! Can't wait to celebrate with you!",
+  date: "2 days ago"
+},
+{
+  name: "The Garcia Family",
+  message: "Congratulations to the most beautiful couple! Your love story inspires us all.",
+  date: "1 week ago"
+},
+{
+  name: "Anna Santos",
+  message: "So happy for both of you! May your marriage be filled with endless joy and adventure.",
+  date: "2 weeks ago"
+}];
+
 
 export const GuestbookSection = () => {
   const ref = useRef(null);
@@ -37,7 +37,7 @@ export const GuestbookSection = () => {
     await new Promise((resolve) => setTimeout(resolve, 1500));
 
     toast.success("Message Sent!", {
-      description: "Thank you for your beautiful wishes!",
+      description: "Thank you for your beautiful wishes!"
     });
 
     setIsSubmitting(false);
@@ -52,12 +52,12 @@ export const GuestbookSection = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8 }}
-          className="text-center mb-12"
-        >
+          className="text-center mb-12">
+
           <p className="font-sans text-sm tracking-[0.3em] uppercase text-muted-foreground mb-4">
             Leave Your Wishes
           </p>
-          <h2 className="font-script text-5xl md:text-7xl text-primary mb-6">
+          <h2 className="font-script text-5xl md:text-7xl mb-6 text-[#b49350]" style={{ color: 'hsl(216, 60%, 55%)' }}>
             Guestbook
           </h2>
           <p className="font-serif text-lg text-foreground/70 max-w-xl mx-auto">
@@ -71,12 +71,12 @@ export const GuestbookSection = () => {
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.6, delay: 0.2 }}
-          >
+            transition={{ duration: 0.6, delay: 0.2 }}>
+
             <form
               onSubmit={handleSubmit}
-              className="bg-background rounded-2xl p-8 shadow-elegant border border-gold-light/20"
-            >
+              className="bg-background rounded-2xl p-8 shadow-elegant border border-secondary/30">
+
               <h3 className="font-serif text-2xl text-foreground mb-6 flex items-center gap-3">
                 <MessageCircle className="w-6 h-6 text-primary" />
                 Send Your Wishes
@@ -90,9 +90,9 @@ export const GuestbookSection = () => {
                   <Input
                     id="guestName"
                     required
-                    className="bg-card border-gold-light/30 focus:border-primary"
-                    placeholder="Your name"
-                  />
+                    className="bg-card border-secondary/40 focus:border-primary"
+                    placeholder="Your name" />
+
                 </div>
 
                 <div className="space-y-2">
@@ -102,9 +102,9 @@ export const GuestbookSection = () => {
                   <Input
                     id="guestEmail"
                     type="email"
-                    className="bg-card border-gold-light/30 focus:border-primary"
-                    placeholder="your@email.com"
-                  />
+                    className="bg-card border-secondary/40 focus:border-primary"
+                    placeholder="your@email.com" />
+
                 </div>
 
                 <div className="space-y-2">
@@ -114,53 +114,53 @@ export const GuestbookSection = () => {
                   <Textarea
                     id="guestMessage"
                     required
-                    className="bg-card border-gold-light/30 focus:border-primary resize-none"
+                    className="bg-card border-secondary/40 focus:border-primary resize-none"
                     placeholder="Share your blessings and wishes..."
-                    rows={5}
-                  />
+                    rows={5} />
+
                 </div>
 
                 <Button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full bg-gradient-gold hover:opacity-90 text-primary-foreground font-sans tracking-wide py-6 transition-all duration-300"
-                >
-                  {isSubmitting ? (
-                    <span className="flex items-center gap-2">
+                  className="w-full bg-primary hover:bg-primary/80 text-foreground font-sans tracking-wide py-6 transition-all duration-300">
+
+                  {isSubmitting ?
+                  <span className="flex items-center gap-2">
                       <Heart className="w-4 h-4 animate-pulse" />
                       Sending...
-                    </span>
-                  ) : (
-                    <span className="flex items-center gap-2">
+                    </span> :
+
+                  <span className="flex items-center gap-2">
                       <Send className="w-4 h-4" />
                       Send Message
                     </span>
-                  )}
+                  }
                 </Button>
               </div>
             </form>
 
             {/* Contact Info */}
-            <div className="mt-8 bg-background rounded-2xl p-6 shadow-soft border border-gold-light/20">
+            <div className="mt-8 bg-background rounded-2xl p-6 shadow-soft border border-secondary/30">
               <h4 className="font-serif text-lg text-foreground mb-4">
                 Questions? Contact Us
               </h4>
               <div className="space-y-3">
                 <a
-                  href="mailto:johnandstephanie2025@email.com"
-                  className="flex items-center gap-3 text-foreground/70 hover:text-primary transition-colors"
-                >
+                  href="mailto:tephanie.salanatin@gmail.com"
+                  className="flex items-center gap-3 text-foreground/70 hover:text-primary transition-colors">
+
                   <Mail className="w-4 h-4" />
                   <span className="font-sans text-sm">
-                    johnandstephanie2025@email.com
+                    tephanie.salanatin@gmail.com
                   </span>
                 </a>
                 <a
-                  href="tel:+639123456789"
-                  className="flex items-center gap-3 text-foreground/70 hover:text-primary transition-colors"
-                >
+                  href="tel:+639762304134"
+                  className="flex items-center gap-3 text-foreground/70 hover:text-primary transition-colors">
+
                   <Phone className="w-4 h-4" />
-                  <span className="font-sans text-sm">+63 912 345 6789</span>
+                  <span className="font-sans text-sm">+63 976 230 4134</span>
                 </a>
               </div>
             </div>
@@ -171,21 +171,21 @@ export const GuestbookSection = () => {
             initial={{ opacity: 0, x: 30 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.3 }}
-            className="space-y-6"
-          >
+            className="space-y-6">
+
             <h3 className="font-serif text-2xl text-foreground flex items-center gap-3">
               <Heart className="w-6 h-6 text-primary fill-primary" />
               Messages from Loved Ones
             </h3>
 
-            {sampleMessages.map((msg, index) => (
-              <motion.div
-                key={msg.name}
-                initial={{ opacity: 0, y: 20 }}
-                animate={isInView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.5, delay: 0.4 + index * 0.1 }}
-                className="bg-background rounded-xl p-6 shadow-soft border border-gold-light/20"
-              >
+            {sampleMessages.map((msg, index) =>
+            <motion.div
+              key={msg.name}
+              initial={{ opacity: 0, y: 20 }}
+              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.5, delay: 0.4 + index * 0.1 }}
+              className="bg-background rounded-xl p-6 shadow-soft border border-secondary/30">
+
                 <div className="flex items-start justify-between mb-3">
                   <h4 className="font-serif text-lg text-foreground">
                     {msg.name}
@@ -198,7 +198,7 @@ export const GuestbookSection = () => {
                   "{msg.message}"
                 </p>
               </motion.div>
-            ))}
+            )}
 
             <div className="text-center pt-4">
               <p className="font-sans text-sm text-muted-foreground">
@@ -208,6 +208,6 @@ export const GuestbookSection = () => {
           </motion.div>
         </div>
       </div>
-    </section>
-  );
+    </section>);
+
 };

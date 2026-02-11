@@ -3,21 +3,21 @@ import { useRef } from "react";
 import { Gift, CreditCard, QrCode, Heart } from "lucide-react";
 
 const registryOptions = [
-  {
-    title: "Bank Transfer",
-    icon: CreditCard,
-    description: "Send monetary gifts directly to our bank account",
-    details: "Account Name: John Ferino Gutierrez\nBank: BDO\nAccount No: XXXX-XXXX-XXXX",
-    qrPlaceholder: true,
-  },
-  {
-    title: "GCash",
-    icon: QrCode,
-    description: "Quick and easy mobile transfer via GCash",
-    details: "GCash Name: John Ferino Gutierrez\nMobile: 09XX-XXX-XXXX",
-    qrPlaceholder: true,
-  },
-];
+{
+  title: "Bank Transfer",
+  icon: CreditCard,
+  description: "Send monetary gifts directly to our bank account",
+  details: "Account Name: John Ferino Gutierrez\nBank: BDO\nAccount No: XXXX-XXXX-XXXX",
+  qrPlaceholder: true
+},
+{
+  title: "GCash",
+  icon: QrCode,
+  description: "Quick and easy mobile transfer via GCash",
+  details: "GCash Name: John Ferino Gutierrez\nMobile: 09XX-XXX-XXXX",
+  qrPlaceholder: true
+}];
+
 
 export const RegistrySection = () => {
   const ref = useRef(null);
@@ -31,12 +31,12 @@ export const RegistrySection = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8 }}
-          className="text-center mb-12"
-        >
+          className="text-center mb-12">
+
           <p className="font-sans text-sm tracking-[0.3em] uppercase text-muted-foreground mb-4">
             Your Presence is Our Gift
           </p>
-          <h2 className="font-script text-5xl md:text-7xl mb-6" style={{ color: 'hsl(216, 60%, 55%)' }}>
+          <h2 className="font-script text-5xl md:text-7xl mb-6 text-[#b49350]" style={{ color: 'hsl(216, 60%, 55%)' }}>
             Gift Registry
           </h2>
           <p className="font-serif text-lg text-foreground/70 max-w-2xl mx-auto">
@@ -47,15 +47,15 @@ export const RegistrySection = () => {
         </motion.div>
 
         <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-          {registryOptions.map((option, index) => (
-            <motion.div
-              key={option.title}
-              initial={{ opacity: 0, y: 40 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.6, delay: index * 0.2 }}
-              className="bg-card rounded-2xl p-8 shadow-elegant border border-secondary/30 text-center"
-            >
-              <div className="w-16 h-16 rounded-full bg-primary mx-auto mb-6 flex items-center justify-center">
+          {registryOptions.map((option, index) =>
+          <motion.div
+            key={option.title}
+            initial={{ opacity: 0, y: 40 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.6, delay: index * 0.2 }}
+            className="bg-card rounded-2xl p-8 shadow-elegant border border-secondary/30 text-center">
+
+              <div className="w-16 h-16 rounded-full mx-auto mb-6 flex items-center justify-center bg-[#b49350]/70">
                 <option.icon className="w-7 h-7 text-foreground" />
               </div>
 
@@ -76,13 +76,13 @@ export const RegistrySection = () => {
                 </div>
               </div>
 
-              <div className="bg-background rounded-lg p-4">
+              <div className="rounded-lg p-4 bg-[#b49350]/[0.61]">
                 <p className="font-sans text-sm text-foreground/70 whitespace-pre-line">
                   {option.details}
                 </p>
               </div>
             </motion.div>
-          ))}
+          )}
         </div>
 
         {/* Note */}
@@ -90,8 +90,8 @@ export const RegistrySection = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6, delay: 0.5 }}
-          className="text-center mt-12"
-        >
+          className="text-center mt-12">
+
           <div className="inline-flex items-center gap-3 bg-card px-6 py-4 rounded-xl shadow-soft border border-secondary/30">
             <Gift className="w-5 h-5 text-primary" />
             <p className="font-serif text-foreground/80 italic">
@@ -101,6 +101,6 @@ export const RegistrySection = () => {
           </div>
         </motion.div>
       </div>
-    </section>
-  );
+    </section>);
+
 };

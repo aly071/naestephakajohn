@@ -3,27 +3,27 @@ import { useRef } from "react";
 import { Clock, MapPin, Shirt, Calendar } from "lucide-react";
 
 const events = [
-  {
-    title: "Wedding Ceremony",
-    date: "December 28, 2025",
-    time: "3:00 PM",
-    venue: "St. Augustine Church",
-    address: "123 Cathedral Avenue, Manila, Philippines",
-    dressCode: "Formal Attire",
-    description:
-      "Join us as we exchange vows and begin our journey as husband and wife.",
-  },
-  {
-    title: "Reception",
-    date: "December 28, 2025",
-    time: "6:00 PM",
-    venue: "Grand Ballroom, Manila Hotel",
-    address: "One Rizal Park, Manila, Philippines",
-    dressCode: "Semi-Formal / Cocktail",
-    description:
-      "Celebrate with us over dinner, dancing, and joyful festivities.",
-  },
-];
+{
+  title: "Wedding Ceremony",
+  date: "December 28, 2025",
+  time: "3:00 PM",
+  venue: "St. Augustine Church",
+  address: "123 Cathedral Avenue, Manila, Philippines",
+  dressCode: "Formal Attire",
+  description:
+  "Join us as we exchange vows and begin our journey as husband and wife."
+},
+{
+  title: "Reception",
+  date: "December 28, 2025",
+  time: "6:00 PM",
+  venue: "Grand Ballroom, Manila Hotel",
+  address: "One Rizal Park, Manila, Philippines",
+  dressCode: "Semi-Formal / Cocktail",
+  description:
+  "Celebrate with us over dinner, dancing, and joyful festivities."
+}];
+
 
 export const EventDetailsSection = () => {
   const ref = useRef(null);
@@ -37,12 +37,12 @@ export const EventDetailsSection = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8 }}
-          className="text-center mb-16"
-        >
+          className="text-center mb-16">
+
           <p className="font-sans text-sm tracking-[0.3em] uppercase text-muted-foreground mb-4">
             Join Our Celebration
           </p>
-          <h2 className="font-script text-5xl md:text-7xl mb-6" style={{ color: 'hsl(216, 60%, 55%)' }}>
+          <h2 className="font-script text-5xl md:text-7xl mb-6 text-[#b49350]" style={{ color: 'hsl(216, 60%, 55%)' }}>
             Event Details
           </h2>
           <p className="font-serif text-lg text-foreground/70 max-w-xl mx-auto">
@@ -51,14 +51,14 @@ export const EventDetailsSection = () => {
         </motion.div>
 
         <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-          {events.map((event, index) => (
-            <motion.div
-              key={event.title}
-              initial={{ opacity: 0, y: 40 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.6, delay: index * 0.2 }}
-              className="bg-card rounded-2xl p-8 shadow-elegant border border-secondary/30 hover:border-primary/40 transition-all duration-300"
-            >
+          {events.map((event, index) =>
+          <motion.div
+            key={event.title}
+            initial={{ opacity: 0, y: 40 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.6, delay: index * 0.2 }}
+            className="bg-card rounded-2xl p-8 shadow-elegant border border-secondary/30 hover:border-primary/40 transition-all duration-300">
+
               <h3 className="font-serif text-2xl md:text-3xl text-foreground mb-6 text-center">
                 {event.title}
               </h3>
@@ -128,9 +128,9 @@ export const EventDetailsSection = () => {
                 {event.description}
               </p>
             </motion.div>
-          ))}
+          )}
         </div>
       </div>
-    </section>
-  );
+    </section>);
+
 };

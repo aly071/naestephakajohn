@@ -21,7 +21,7 @@ export const RSVPSection = () => {
     await new Promise((resolve) => setTimeout(resolve, 1500));
 
     toast.success("Thank you for your RSVP!", {
-      description: "We look forward to celebrating with you!",
+      description: "We look forward to celebrating with you!"
     });
 
     setIsSubmitting(false);
@@ -36,9 +36,9 @@ export const RSVPSection = () => {
           className="absolute inset-0"
           style={{
             backgroundImage: `url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M50 50m-40 0a40,40 0 1,0 80,0a40,40 0 1,0 -80,0' fill='none' stroke='%236B8CC9' stroke-width='0.5'/%3E%3C/svg%3E")`,
-            backgroundSize: "100px 100px",
-          }}
-        />
+            backgroundSize: "100px 100px"
+          }} />
+
       </div>
 
       <div className="container mx-auto px-4 relative z-10">
@@ -47,12 +47,12 @@ export const RSVPSection = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8 }}
-          className="text-center mb-12"
-        >
+          className="text-center mb-12">
+
           <p className="font-sans text-sm tracking-[0.3em] uppercase text-muted-foreground mb-4">
             Kindly Respond
           </p>
-          <h2 className="font-script text-5xl md:text-7xl mb-6" style={{ color: 'hsl(216, 60%, 55%)' }}>
+          <h2 className="font-script text-5xl md:text-7xl mb-6 text-[#b49350]" style={{ color: 'hsl(216, 60%, 55%)' }}>
             RSVP
           </h2>
           <p className="font-serif text-lg text-foreground/70 max-w-xl mx-auto">
@@ -64,12 +64,12 @@ export const RSVPSection = () => {
           initial={{ opacity: 0, y: 40 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="max-w-xl mx-auto"
-        >
+          className="max-w-xl mx-auto">
+
           <form
             onSubmit={handleSubmit}
-            className="bg-background rounded-2xl p-8 shadow-elegant border border-secondary/30"
-          >
+            className="bg-background rounded-2xl p-8 shadow-elegant border border-secondary/30">
+
             <div className="space-y-6">
               <div className="grid sm:grid-cols-2 gap-4">
                 <div className="space-y-2">
@@ -80,8 +80,8 @@ export const RSVPSection = () => {
                     id="firstName"
                     required
                     className="bg-card border-secondary/40 focus:border-primary"
-                    placeholder="John"
-                  />
+                    placeholder="John" />
+
                 </div>
                 <div className="space-y-2">
                   <Label htmlFor="lastName" className="font-sans text-sm">
@@ -91,8 +91,8 @@ export const RSVPSection = () => {
                     id="lastName"
                     required
                     className="bg-card border-secondary/40 focus:border-primary"
-                    placeholder="Doe"
-                  />
+                    placeholder="Doe" />
+
                 </div>
               </div>
 
@@ -105,8 +105,8 @@ export const RSVPSection = () => {
                   type="email"
                   required
                   className="bg-card border-secondary/40 focus:border-primary"
-                  placeholder="john@example.com"
-                />
+                  placeholder="john@example.com" />
+
               </div>
 
               <div className="space-y-3">
@@ -137,8 +137,8 @@ export const RSVPSection = () => {
                   min="1"
                   max="5"
                   defaultValue="1"
-                  className="bg-card border-secondary/40 focus:border-primary"
-                />
+                  className="bg-card border-secondary/40 focus:border-primary" />
+
               </div>
 
               <div className="space-y-2">
@@ -149,8 +149,8 @@ export const RSVPSection = () => {
                   id="dietary"
                   className="bg-card border-secondary/40 focus:border-primary resize-none"
                   placeholder="Please let us know of any allergies or dietary requirements..."
-                  rows={3}
-                />
+                  rows={3} />
+
               </div>
 
               <div className="space-y-2">
@@ -161,31 +161,31 @@ export const RSVPSection = () => {
                   id="message"
                   className="bg-card border-secondary/40 focus:border-primary resize-none"
                   placeholder="Share your wishes..."
-                  rows={3}
-                />
+                  rows={3} />
+
               </div>
 
               <Button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full bg-primary hover:bg-primary/80 text-foreground font-sans tracking-wide py-6 transition-all duration-300"
-              >
-                {isSubmitting ? (
-                  <span className="flex items-center gap-2">
+                className="w-full bg-primary hover:bg-primary/80 text-foreground font-sans tracking-wide py-6 transition-all duration-300">
+
+                {isSubmitting ?
+                <span className="flex items-center gap-2">
                     <Heart className="w-4 h-4 animate-pulse" />
                     Sending...
-                  </span>
-                ) : (
-                  <span className="flex items-center gap-2">
+                  </span> :
+
+                <span className="flex items-center gap-2">
                     <Send className="w-4 h-4" />
                     Send RSVP
                   </span>
-                )}
+                }
               </Button>
             </div>
           </form>
         </motion.div>
       </div>
-    </section>
-  );
+    </section>);
+
 };

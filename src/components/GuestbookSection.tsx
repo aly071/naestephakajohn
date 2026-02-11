@@ -147,20 +147,20 @@ export const GuestbookSection = () => {
               </h4>
               <div className="space-y-3">
                 <a
-                  href="mailto:johnandstephanie2025@email.com"
+                  href="mailto:tephanie.salanatin@gmail.com"
                   className="flex items-center gap-3 text-foreground/70 hover:text-primary transition-colors"
                 >
                   <Mail className="w-4 h-4" />
                   <span className="font-sans text-sm">
-                    johnandstephanie2025@email.com
+                    tephanie.salanatin@gmail.com
                   </span>
                 </a>
                 <a
-                  href="tel:+639123456789"
+                  href="tel:+639762304134"
                   className="flex items-center gap-3 text-foreground/70 hover:text-primary transition-colors"
                 >
                   <Phone className="w-4 h-4" />
-                  <span className="font-sans text-sm">+63 912 345 6789</span>
+                  <span className="font-sans text-sm">+63 976 230 4134</span>
                 </a>
               </div>
             </div>

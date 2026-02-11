@@ -16,16 +16,30 @@ export const RSVPSection = () => {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsSubmitting(true);
-
-    // Simulate form submission
-    await new Promise((resolve) => setTimeout(resolve, 1500));
-
-    toast.success("Thank you for your RSVP!", {
-      description: "We look forward to celebrating with you!",
-    });
-
+  
+    const form = e.target as HTMLFormElement;
+    const formData = new FormData(form);
+  
+    try {
+      await fetch(
+        "https://docs.google.com/forms/d/e/1ubSjUYtalRQfDXTM4ziyWePVNXAUy7SO26MPY_s93no/formResponse",
+        {
+          method: "POST",
+          body: formData,
+          mode: "no-cors",
+        }
+      );
+  
+      toast.success("Thank you for your RSVP!", {
+        description: "We look forward to celebrating with you!",
+      });
+  
+      form.reset();
+    } catch {
+      toast.error("Something went wrong. Please try again.");
+    }
+  
     setIsSubmitting(false);
-    (e.target as HTMLFormElement).reset();
   };
 
   return (
@@ -78,10 +92,10 @@ export const RSVPSection = () => {
                   </Label>
                   <Input
                     id="firstName"
+                    name="entry.1498135098"
                     required
-                    className="bg-card border-gold-light/30 focus:border-primary"
                     placeholder="John"
-                  />
+                  />  
                 </div>
                 <div className="space-y-2">
                   <Label htmlFor="lastName" className="font-sans text-sm">
@@ -89,8 +103,8 @@ export const RSVPSection = () => {
                   </Label>
                   <Input
                     id="lastName"
+                    name="entry.1155229246"
                     required
-                    className="bg-card border-gold-light/30 focus:border-primary"
                     placeholder="Doe"
                   />
                 </div>
@@ -102,42 +116,37 @@ export const RSVPSection = () => {
                 </Label>
                 <Input
                   id="email"
+                  name="entry.719487143"
                   type="email"
                   required
-                  className="bg-card border-gold-light/30 focus:border-primary"
-                  placeholder="john@example.com"
                 />
               </div>
 
               <div className="space-y-3">
                 <Label className="font-sans text-sm">Will you be attending? *</Label>
                 <RadioGroup defaultValue="yes" className="flex gap-6">
-                  <div className="flex items-center space-x-2">
-                    <RadioGroupItem value="yes" id="attending-yes" />
-                    <Label htmlFor="attending-yes" className="font-sans cursor-pointer">
-                      Joyfully Accept
-                    </Label>
-                  </div>
-                  <div className="flex items-center space-x-2">
-                    <RadioGroupItem value="no" id="attending-no" />
-                    <Label htmlFor="attending-no" className="font-sans cursor-pointer">
-                      Regretfully Decline
-                    </Label>
-                  </div>
-                </RadioGroup>
+                <RadioGroupItem
+                  value="yes"
+                  id="attending-yes"
+                  name="entry.877086558"
+                />
+                <RadioGroupItem
+                  value="no"
+                  id="attending-no"
+                  name="entry.877086558"
+                />
+              </RadioGroup>
               </div>
 
               <div className="space-y-2">
                 <Label htmlFor="guests" className="font-sans text-sm">
                   Number of Guests
                 </Label>
-                <Input
+                  <Input
                   id="guests"
+                  name="entry.953371016"
                   type="number"
-                  min="1"
-                  max="5"
                   defaultValue="1"
-                  className="bg-card border-gold-light/30 focus:border-primary"
                 />
               </div>
 
@@ -147,9 +156,7 @@ export const RSVPSection = () => {
                 </Label>
                 <Textarea
                   id="dietary"
-                  className="bg-card border-gold-light/30 focus:border-primary resize-none"
-                  placeholder="Please let us know of any allergies or dietary requirements..."
-                  rows={3}
+                  name="entry.437024174"
                 />
               </div>
 
@@ -159,9 +166,7 @@ export const RSVPSection = () => {
                 </Label>
                 <Textarea
                   id="message"
-                  className="bg-card border-gold-light/30 focus:border-primary resize-none"
-                  placeholder="Share your wishes..."
-                  rows={3}
+                  name="entry.2606285"
                 />
               </div>
 

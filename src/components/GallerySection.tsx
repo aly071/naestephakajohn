@@ -21,7 +21,7 @@ export const GallerySection = () => {
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
 
   const handleUpload = () => {
-    window.open("https://drive.google.com/drive/folders/1LG5ze-kgR7K7vWj0w2E5viMP1hQTACVv?usp=sharing", "_blank");
+    window.open("https://drive.google.com/drive/folders/19AHoGs_z9GE8F1BIPzPIG-ChW960W-I6?usp=sharing", "_blank");
   };
 
   return (

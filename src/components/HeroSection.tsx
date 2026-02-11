@@ -48,7 +48,7 @@ export const HeroSection = () => {
         delay: 0.4,
         duration: 0.8
       }} className="mb-6">
-          <h1 className="font-script text-6xl md:text-8xl lg:text-9xl text-secondary mb-2" style={{ color: 'hsl(216, 60%, 55%)' }}>
+          <h1 className="font-script text-6xl md:text-8xl lg:text-9xl mb-2 text-[#b49350]" style={{ color: 'hsl(216, 60%, 55%)' }}>
             John
           </h1>
           <div className="flex items-center justify-center gap-4 my-2">
@@ -56,7 +56,7 @@ export const HeroSection = () => {
             <Heart className="w-5 h-5 md:w-6 md:h-6 text-primary fill-primary animate-float" />
             <span className="w-16 md:w-24 h-px bg-primary" />
           </div>
-          <h1 className="font-script text-6xl md:text-8xl lg:text-9xl" style={{ color: 'hsl(216, 60%, 55%)' }}>
+          <h1 className="font-script text-6xl md:text-8xl lg:text-9xl text-[#b49350]" style={{ color: 'hsl(216, 60%, 55%)' }}>
             Stephanie
           </h1>
         </motion.div>
@@ -97,7 +97,7 @@ export const HeroSection = () => {
           duration: 1.5,
           repeat: Infinity
         }}>
-            <ChevronDown className="w-5 h-5" />
+            <ChevronDown className="w-5 h-5 rounded-sm" />
           </motion.div>
         </motion.a>
       </div>

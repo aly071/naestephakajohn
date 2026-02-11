@@ -21,9 +21,7 @@ export const GallerySection = () => {
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
 
   const handleUpload = () => {
-    toast.info("Photo Upload", {
-      description: "This feature will be available after the wedding day!",
-    });
+    window.open("https://drive.google.com/drive/folders/1LG5ze-kgR7K7vWj0w2E5viMP1hQTACVv?usp=sharing", "_blank");
   };
 
   return (

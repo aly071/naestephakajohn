@@ -16,24 +16,24 @@ export const RSVPSection = () => {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsSubmitting(true);
-
-    const form = e.currentTarget;
+  
+    const form = e.target as HTMLFormElement;
     const formData = new FormData(form);
-
-    try {
-      await fetch(
-        "https://docs.google.com/forms/d/e/1ubSjUYtalRQfDXTM4ziyWePVNXAUy7SO26MPY_s93no/formResponse",
-        { method: "POST", body: formData, mode: "no-cors" }
-      );
-
-      toast.success("Thank you for your RSVP!", {
-        description: "We look forward to celebrating with you!"
-      });
-      form.reset();
-    } catch {
-      toast.error("Something went wrong. Please try again.");
+  
+    // 👇 ADD THIS DEBUG BLOCK
+    for (const pair of formData.entries()) {
+      console.log(pair);
     }
-
+  
+    await fetch(
+      "https://docs.google.com/forms/d/e/1ubSjUYtalRQfDXTM4ziyWePVNXAUy7SO26MPY_s93no/formResponse",
+      {
+        method: "POST",
+        body: formData,
+        mode: "no-cors",
+      }
+    );
+  
     setIsSubmitting(false);
   };
 

@@ -30,7 +30,7 @@ export const Footer = () => {
           {/* Heart Divider */}
           <div className="flex items-center justify-center gap-4 mb-6">
             <span className="w-12 h-px bg-primary/60" />
-            <Heart className="w-5 h-5 fill-primary animate-pulse bg-white/0 text-[#dc3838] border-none border-0 border-[#dc3838] shadow-none" />
+            <Heart className="w-5 h-5 text-primary fill-primary animate-pulse" />
             <span className="w-12 h-px bg-primary/60" />
           </div>
 

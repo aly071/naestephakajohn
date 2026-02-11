@@ -55,7 +55,7 @@ export const RegistrySection = () => {
             transition={{ duration: 0.6, delay: index * 0.2 }}
             className="bg-card rounded-2xl p-8 shadow-elegant border border-secondary/30 text-center">
 
-              <div className="w-16 h-16 rounded-full mx-auto mb-6 flex items-center justify-center bg-[#b49350]/70">
+              <div className="w-16 h-16 rounded-full bg-primary mx-auto mb-6 flex items-center justify-center">
                 <option.icon className="w-7 h-7 text-foreground" />
               </div>
 
@@ -76,7 +76,7 @@ export const RegistrySection = () => {
                 </div>
               </div>
 
-              <div className="rounded-lg p-4 bg-[#b49350]/[0.61]">
+              <div className="bg-background rounded-lg p-4">
                 <p className="font-sans text-sm text-foreground/70 whitespace-pre-line">
                   {option.details}
                 </p>

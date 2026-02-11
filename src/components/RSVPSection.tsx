@@ -17,15 +17,35 @@ export const RSVPSection = () => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // Simulate form submission
-    await new Promise((resolve) => setTimeout(resolve, 1500));
+    const form = e.target as HTMLFormElement;
+    const formData = new FormData();
 
-    toast.success("Thank you for your RSVP!", {
-      description: "We look forward to celebrating with you!"
-    });
+    formData.append("entry.1498135098", (form.querySelector("#firstName") as HTMLInputElement).value);
+    formData.append("entry.1155229246", (form.querySelector("#lastName") as HTMLInputElement).value);
+    formData.append("entry.719487143", (form.querySelector("#email") as HTMLInputElement).value);
+    
+    const attendingRadio = form.querySelector('input[name="attending"]:checked') as HTMLInputElement;
+    formData.append("entry.877086558", attendingRadio ? attendingRadio.value : "yes");
+    
+    formData.append("entry.953371016", (form.querySelector("#guests") as HTMLInputElement).value);
+    formData.append("entry.437024174", (form.querySelector("#dietary") as HTMLTextAreaElement).value);
+    formData.append("entry.2606285", (form.querySelector("#message") as HTMLTextAreaElement).value);
+
+    try {
+      await fetch(
+        "https://docs.google.com/forms/d/e/1ubSjUYtalRQfDXTM4ziyWePVNXAUy7SO26MPY_s93no/formResponse",
+        { method: "POST", body: formData, mode: "no-cors" }
+      );
+
+      toast.success("Thank you for your RSVP!", {
+        description: "We look forward to celebrating with you!"
+      });
+      form.reset();
+    } catch {
+      toast.error("Something went wrong. Please try again.");
+    }
 
     setIsSubmitting(false);
-    (e.target as HTMLFormElement).reset();
   };
 
   return (
@@ -111,7 +131,7 @@ export const RSVPSection = () => {
 
               <div className="space-y-3">
                 <Label className="font-sans text-sm">Will you be attending? *</Label>
-                <RadioGroup defaultValue="yes" className="flex gap-6">
+                <RadioGroup defaultValue="yes" name="attending" className="flex gap-6">
                   <div className="flex items-center space-x-2">
                     <RadioGroupItem value="yes" id="attending-yes" />
                     <Label htmlFor="attending-yes" className="font-sans cursor-pointer">

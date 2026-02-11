@@ -115,23 +115,30 @@ export const RSVPSection = () => {
                 />
               </div>
 
-              <div className="space-y-3">
-                <Label className="font-sans text-sm">Will you be attending? *</Label>
-                <RadioGroup defaultValue="yes" className="flex gap-6">
-                  <div className="flex items-center space-x-2">
-                    <RadioGroupItem value="yes" id="attending-yes" />
-                    <Label htmlFor="attending-yes" className="font-sans cursor-pointer">
-                      Joyfully Accept
-                    </Label>
-                  </div>
-                  <div className="flex items-center space-x-2">
-                    <RadioGroupItem value="no" id="attending-no" />
-                    <Label htmlFor="attending-no" className="font-sans cursor-pointer">
-                      Regretfully Decline
-                    </Label>
-                  </div>
-                </RadioGroup>
+            <div className="space-y-3">
+              <Label className="font-sans text-sm">Will you be attending? *</Label>
+
+              <div className="flex gap-6">
+                <label className="flex items-center gap-2 cursor-pointer">
+                  <input
+                    type="radio"
+                    name="entry.877086558"
+                    value="yes"
+                    defaultChecked
+                  />
+                  Joyfully Accept
+                </label>
+
+                <label className="flex items-center gap-2 cursor-pointer">
+                  <input
+                    type="radio"
+                    name="entry.877086558"
+                    value="no"
+                  />
+                  Regretfully Decline
+                </label>
               </div>
+            </div>
 
               <div className="space-y-2">
                 <Label htmlFor="guests" className="font-sans text-sm">
@@ -142,7 +149,6 @@ export const RSVPSection = () => {
                   name="entry.953371016"
                   type="number"
                   defaultValue="1"
-                  className="bg-card border-gold-light/30 focus:border-primary"
                 />
               </div>
 
@@ -150,9 +156,7 @@ export const RSVPSection = () => {
                 <Label htmlFor="dietary" className="font-sans text-sm">Dietary Restrictions</Label>
                 <Textarea
                   id="dietary"
-                  className="bg-card border-gold-light/30 focus:border-primary resize-none"
-                  placeholder="Please let us know of any allergies or dietary requirements..."
-                  rows={3}
+                  name="entry.437024174"
                 />
               </div>
 
@@ -160,9 +164,7 @@ export const RSVPSection = () => {
                 <Label htmlFor="message" className="font-sans text-sm">Message to the Couple (Optional)</Label>
                 <Textarea
                   id="message"
-                  className="bg-card border-gold-light/30 focus:border-primary resize-none"
-                  placeholder="Share your wishes..."
-                  rows={3}
+                  name="entry.2606285"
                 />
               </div>
 

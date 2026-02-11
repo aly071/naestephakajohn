@@ -18,24 +18,36 @@ export const RSVPSection = () => {
     setIsSubmitting(true);
   
     const form = e.target as HTMLFormElement;
-    const formData = new FormData(form);
   
-    // 👇 ADD THIS DEBUG BLOCK
-    for (const pair of formData.entries()) {
-      console.log(pair);
-    }
+    const data = new URLSearchParams();
+  
+    data.append("entry.1498135098", (form.querySelector("#firstName") as HTMLInputElement).value);
+    data.append("entry.1155229246", (form.querySelector("#lastName") as HTMLInputElement).value);
+    data.append("entry.719487143", (form.querySelector("#email") as HTMLInputElement).value);
+  
+    const attending = form.querySelector('input[name="entry.877086558"]:checked') as HTMLInputElement;
+    data.append("entry.877086558", attending?.value || "yes");
+  
+    data.append("entry.953371016", (form.querySelector("#guests") as HTMLInputElement).value);
+    data.append("entry.437024174", (form.querySelector("#dietary") as HTMLTextAreaElement).value);
+    data.append("entry.2606285", (form.querySelector("#message") as HTMLTextAreaElement).value);
   
     await fetch(
       "https://docs.google.com/forms/d/e/1FAIpQLSehWq7YLOgjwrHEJdhZMRqs6l3YlLBAaumg7IEeOKkrcPzAog/formResponse",
       {
         method: "POST",
-        body: formData,
-        mode: "no-cors",
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded"
+        },
+        body: data.toString(),
+        mode: "no-cors"
       }
     );
   
     setIsSubmitting(false);
+    form.reset();
   };
+  
 
   return (
     <section id="rsvp" className="py-20 md:py-32 bg-card relative overflow-hidden">

@@ -26,7 +26,7 @@ export const RSVPSection = () => {
     }
   
     await fetch(
-      "https://docs.google.com/forms/d/e/1ubSjUYtalRQfDXTM4ziyWePVNXAUy7SO26MPY_s93no/formResponse",
+      "https://docs.google.com/forms/d/e/1FAIpQLSehWq7YLOgjwrHEJdhZMRqs6l3YlLBAaumg7IEeOKkrcPzAog/formResponse",
       {
         method: "POST",
         body: formData,

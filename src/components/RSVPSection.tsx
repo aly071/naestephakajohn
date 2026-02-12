@@ -1,11 +1,15 @@
-import { useState } from "react";
+import { motion, useInView } from "framer-motion";
+import { useRef, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
+import { Label } from "@/components/ui/label";
 import { Send, Heart } from "lucide-react";
 import { toast } from "sonner";
 
 export const RSVPSection = () => {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: "-100px" });
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -18,9 +22,7 @@ export const RSVPSection = () => {
       const res = await fetch("https://formspree.io/f/xaqdengw", {
         method: "POST",
         body: formData,
-        headers: {
-          Accept: "application/json",
-        },
+        headers: { Accept: "application/json" },
       });
 
       if (res.ok) {
@@ -37,107 +39,138 @@ export const RSVPSection = () => {
   };
 
   return (
-    <section className="py-20 bg-gradient-to-b from-white to-neutral-100">
-      <div className="max-w-2xl mx-auto px-6">
+    <section
+      id="rsvp"
+      className="py-20 md:py-32 bg-card relative overflow-hidden"
+    >
+      <div className="container mx-auto px-4">
 
-        {/* Title */}
-        <div className="text-center mb-10">
-          <p className="tracking-widest text-sm text-neutral-500">KINDLY RESPOND</p>
-          <h2 className="text-6xl font-serif text-blue-500 mb-3">RSVP</h2>
-          <p className="text-neutral-600">
-            Please let us know if you'll be joining us
+        {/* Heading — same style as Guestbook */}
+        <motion.div
+          ref={ref}
+          initial={{ opacity: 0, y: 30 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.8 }}
+          className="text-center mb-12"
+        >
+          <p className="font-sans text-sm tracking-[0.3em] uppercase text-muted-foreground mb-4">
+            Kindly Respond
           </p>
-        </div>
 
-        {/* Card */}
-        <div className="bg-white/90 backdrop-blur rounded-3xl shadow-xl p-8">
-          <form onSubmit={handleSubmit} className="space-y-6">
+          <h2
+            className="font-script text-5xl md:text-7xl mb-6"
+            style={{ color: "#b49350" }}
+          >
+            RSVP
+          </h2>
 
-            {/* Names */}
-            <div className="grid grid-cols-2 gap-4">
-              <div>
-                <label className="text-sm font-medium">First Name *</label>
-                <Input name="firstName" required placeholder="John" />
+          <p className="font-serif text-lg text-foreground/70 max-w-xl mx-auto">
+            Please let us know if you’ll be joining us on our special day.
+          </p>
+        </motion.div>
+
+        {/* Card — EXACT SAME STYLE as Guestbook form */}
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          className="max-w-2xl mx-auto"
+        >
+          <form
+            onSubmit={handleSubmit}
+            className="bg-background rounded-2xl p-8 shadow-elegant border border-secondary/30"
+          >
+            <h3 className="font-serif text-2xl text-foreground mb-6 flex items-center gap-3">
+              <Heart className="w-6 h-6 text-primary" />
+              Confirm Your Attendance
+            </h3>
+
+            <div className="space-y-5">
+
+              {/* Names */}
+              <div className="grid sm:grid-cols-2 gap-4">
+                <div className="space-y-2">
+                  <Label>First Name *</Label>
+                  <Input name="firstName" required />
+                </div>
+
+                <div className="space-y-2">
+                  <Label>Last Name *</Label>
+                  <Input name="lastName" required />
+                </div>
               </div>
 
-              <div>
-                <label className="text-sm font-medium">Last Name *</label>
-                <Input name="lastName" required placeholder="Doe" />
+              {/* Email */}
+              <div className="space-y-2">
+                <Label>Email Address *</Label>
+                <Input type="email" name="email" required />
               </div>
-            </div>
 
-            {/* Email */}
-            <div>
-              <label className="text-sm font-medium">Email Address *</label>
-              <Input
-                type="email"
-                name="email"
-                required
-                placeholder="john@example.com"
-              />
-            </div>
+              {/* Attendance */}
+              <div className="space-y-2">
+                <Label>Will you be attending? *</Label>
 
-            {/* Attendance */}
-            <div>
-              <p className="text-sm font-medium mb-2">Will you be attending? *</p>
+                <div className="flex gap-6">
+                  <label className="flex items-center gap-2 font-sans">
+                    <input
+                      type="radio"
+                      name="attending"
+                      value="Accept"
+                      defaultChecked
+                    />
+                    Joyfully Accept
+                  </label>
 
-              <div className="flex gap-6">
-                <label className="flex items-center gap-2">
-                  <input type="radio" name="attending" value="Accept" defaultChecked />
-                  Joyfully Accept
-                </label>
-
-                <label className="flex items-center gap-2">
-                  <input type="radio" name="attending" value="Decline" />
-                  Regretfully Decline
-                </label>
+                  <label className="flex items-center gap-2 font-sans">
+                    <input
+                      type="radio"
+                      name="attending"
+                      value="Decline"
+                    />
+                    Regretfully Decline
+                  </label>
+                </div>
               </div>
+
+              {/* Guests */}
+              <div className="space-y-2">
+                <Label>Number of Guests</Label>
+                <Input name="guests" type="number" defaultValue="1" />
+              </div>
+
+              {/* Dietary */}
+              <div className="space-y-2">
+                <Label>Dietary Restrictions</Label>
+                <Textarea name="dietary" rows={3} />
+              </div>
+
+              {/* Message */}
+              <div className="space-y-2">
+                <Label>Message to the Couple (Optional)</Label>
+                <Textarea name="message" rows={4} />
+              </div>
+
+              {/* Submit button — same style */}
+              <Button
+                type="submit"
+                disabled={isSubmitting}
+                className="w-full bg-primary hover:bg-primary/80 text-foreground font-sans tracking-wide py-6 transition-all duration-300"
+              >
+                {isSubmitting ? (
+                  <span className="flex items-center gap-2">
+                    <Heart className="w-4 h-4 animate-pulse" />
+                    Sending...
+                  </span>
+                ) : (
+                  <span className="flex items-center gap-2">
+                    <Send className="w-4 h-4" />
+                    Send RSVP
+                  </span>
+                )}
+              </Button>
             </div>
-
-            {/* Guests */}
-            <div>
-              <label className="text-sm font-medium">Number of Guests</label>
-              <Input name="guests" type="number" defaultValue="1" />
-            </div>
-
-            {/* Dietary */}
-            <div>
-              <label className="text-sm font-medium">Dietary Restrictions</label>
-              <Textarea
-                name="dietary"
-                placeholder="Please let us know of any allergies or dietary requirements..."
-              />
-            </div>
-
-            {/* Message */}
-            <div>
-              <label className="text-sm font-medium">
-                Message to the Couple (Optional)
-              </label>
-              <Textarea name="message" placeholder="Share your wishes..." />
-            </div>
-
-            {/* Button */}
-            <Button
-              type="submit"
-              disabled={isSubmitting}
-              className="w-full rounded-2xl h-12 text-base"
-            >
-              {isSubmitting ? (
-                <>
-                  <Heart className="w-4 h-4 animate-pulse mr-2" />
-                  Sending...
-                </>
-              ) : (
-                <>
-                  <Send className="w-4 h-4 mr-2" />
-                  Send RSVP
-                </>
-              )}
-            </Button>
-
           </form>
-        </div>
+        </motion.div>
       </div>
     </section>
   );

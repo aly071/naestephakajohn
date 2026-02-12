@@ -20,7 +20,7 @@ export const Footer = () => {
           className="text-center">
 
           {/* Couple Names */}
-          <h2 className="font-script text-4xl mb-4 text-[#b49350] md:text-6xl" style={{ color: 'hsl(216, 60%, 45%)' }}>
+          <h2 className="font-script text-4xl mb-4 md:text-6xl" style={{ color: '#b49350' }}>
             John & Stephanie
           </h2>
           <p className="font-serif text-lg text-foreground/80 mb-6">

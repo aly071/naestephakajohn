@@ -19,7 +19,7 @@ export const RegistrySection = () => {
           <p className="font-sans text-sm tracking-[0.3em] uppercase text-muted-foreground mb-4">
             Your Presence is Our Gift
           </p>
-          <h2 className="font-script text-5xl md:text-7xl mb-6" style={{ color: 'hsl(216, 60%, 55%)' }}>
+          <h2 className="font-script text-5xl md:text-7xl mb-6" style={{ color: '#b49350' }}>
             Gift Registry
           </h2>
           <p className="font-serif text-lg text-foreground/70 max-w-2xl mx-auto">

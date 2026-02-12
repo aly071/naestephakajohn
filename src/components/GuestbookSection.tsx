@@ -57,7 +57,7 @@ export const GuestbookSection = () => {
           <p className="font-sans text-sm tracking-[0.3em] uppercase text-muted-foreground mb-4">
             Leave Your Wishes
           </p>
-          <h2 className="font-script text-5xl md:text-7xl mb-6 text-[#b49350]" style={{ color: 'hsl(216, 60%, 55%)' }}>
+          <h2 className="font-script text-5xl md:text-7xl mb-6 text-[#b49350]" style={{ color: '#b49350' }}>
             Guestbook
           </h2>
           <p className="font-serif text-lg text-foreground/70 max-w-xl mx-auto">

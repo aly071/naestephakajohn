@@ -3,77 +3,79 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Send, Heart } from "lucide-react";
-import { toast } from "sonner";
 
 export const RSVPSection = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
-
-  const handleSubmit = () => {
-    setIsSubmitting(true);
-
-    // small delay so Google receives data first
-    setTimeout(() => {
-      toast.success("Thank you for your RSVP ❤️");
-      setIsSubmitting(false);
-    }, 600);
-  };
 
   return (
     <section className="py-20">
       <div className="max-w-xl mx-auto">
 
-        {/* prevents redirect */}
-        <iframe name="hidden_iframe" style={{ display: "none" }} />
-
+        {/* ✅ Formspree handles everything */}
         <form
-          action="https://docs.google.com/forms/d/e/1FAIpQLSehWq7YLOgjwrHEJdhZMRqs6l3YlLBAaumg7IEeOKkrcPzAog/formResponse"
+          action="https://formspree.io/f/xaqdengw"
           method="POST"
-          target="hidden_iframe"
-          onSubmit={handleSubmit}
+          onSubmit={() => setIsSubmitting(true)}
           className="space-y-4"
         >
-          {/* Google entry IDs are REQUIRED */}
-          <Input name="entry.1498135098" placeholder="First Name" required />
-          <Input name="entry.1155229246" placeholder="Last Name" required />
-          <Input name="entry.719487143" type="email" placeholder="Email" required />
+          {/* First Name */}
+          <Input
+            name="firstName"
+            placeholder="First Name"
+            required
+          />
 
+          {/* Last Name */}
+          <Input
+            name="lastName"
+            placeholder="Last Name"
+            required
+          />
+
+          {/* Email */}
+          <Input
+            name="email"
+            type="email"
+            placeholder="Email"
+            required
+          />
+
+          {/* Attending */}
           <div className="flex gap-4">
-            <label className="flex gap-2 items-center">
-              <input
-                type="radio"
-                name="entry.877086558"
-                value="yes"
-                defaultChecked
-              />
+            <label className="flex gap-2">
+              <input type="radio" name="attending" value="yes" defaultChecked />
               Accept
             </label>
 
-            <label className="flex gap-2 items-center">
-              <input
-                type="radio"
-                name="entry.877086558"
-                value="no"
-              />
+            <label className="flex gap-2">
+              <input type="radio" name="attending" value="no" />
               Decline
             </label>
           </div>
 
+          {/* Guests */}
           <Input
-            name="entry.953371016"
+            name="guests"
             type="number"
             defaultValue="1"
           />
 
+          {/* Dietary */}
           <Textarea
-            name="entry.437024174"
+            name="dietary"
             placeholder="Dietary restrictions"
           />
 
+          {/* Message */}
           <Textarea
-            name="entry.2606285"
+            name="message"
             placeholder="Message"
           />
 
+          {/* Optional: stay on homepage after submit */}
+          <input type="hidden" name="_next" value="/" />
+
+          {/* Button */}
           <Button type="submit" disabled={isSubmitting} className="w-full">
             {isSubmitting ? (
               <>

@@ -8,72 +8,73 @@ import { toast } from "sonner";
 export const RSVPSection = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
+  const handleSubmit = () => {
     setIsSubmitting(true);
 
-    const formData = new FormData(e.currentTarget);
-
-    const payload = {
-      firstName: formData.get("firstName"),
-      lastName: formData.get("lastName"),
-      email: formData.get("email"),
-      attending: formData.get("attending"),
-      guests: formData.get("guests"),
-      dietary: formData.get("dietary"),
-      message: formData.get("message"),
-    };
-
-    try {
-      const res = await fetch("/api/rsvp", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(payload),
-      });
-
-      const result = await res.json();
-
-      if (result.success) {
-        toast.success("Thank you for your RSVP ❤️");
-        e.currentTarget.reset();
-      } else {
-        toast.error("Submission failed");
-      }
-    } catch {
-      toast.error("Server error");
-    }
-
-    setIsSubmitting(false);
+    // small delay so Google receives data first
+    setTimeout(() => {
+      toast.success("Thank you for your RSVP ❤️");
+      setIsSubmitting(false);
+    }, 600);
   };
 
   return (
     <section className="py-20">
       <div className="max-w-xl mx-auto">
-        <form onSubmit={handleSubmit} className="space-y-4">
 
-          <Input name="firstName" placeholder="First Name" required />
-          <Input name="lastName" placeholder="Last Name" required />
-          <Input name="email" type="email" placeholder="Email" required />
+        {/* prevents redirect */}
+        <iframe name="hidden_iframe" style={{ display: "none" }} />
+
+        <form
+          action="https://docs.google.com/forms/d/e/1FAIpQLSehWq7YLOgjwrHEJdhZMRqs6l3YlLBAaumg7IEeOKkrcPzAog/formResponse"
+          method="POST"
+          target="hidden_iframe"
+          onSubmit={handleSubmit}
+          className="space-y-4"
+        >
+          {/* Google entry IDs are REQUIRED */}
+          <Input name="entry.1498135098" placeholder="First Name" required />
+          <Input name="entry.1155229246" placeholder="Last Name" required />
+          <Input name="entry.719487143" type="email" placeholder="Email" required />
 
           <div className="flex gap-4">
-            <label>
-              <input type="radio" name="attending" value="yes" defaultChecked />
+            <label className="flex gap-2 items-center">
+              <input
+                type="radio"
+                name="entry.877086558"
+                value="yes"
+                defaultChecked
+              />
               Accept
             </label>
 
-            <label>
-              <input type="radio" name="attending" value="no" />
+            <label className="flex gap-2 items-center">
+              <input
+                type="radio"
+                name="entry.877086558"
+                value="no"
+              />
               Decline
             </label>
           </div>
 
-          <Input name="guests" type="number" defaultValue="1" />
-          <Textarea name="dietary" placeholder="Dietary restrictions" />
-          <Textarea name="message" placeholder="Message" />
+          <Input
+            name="entry.953371016"
+            type="number"
+            defaultValue="1"
+          />
 
-          <Button type="submit" disabled={isSubmitting}>
+          <Textarea
+            name="entry.437024174"
+            placeholder="Dietary restrictions"
+          />
+
+          <Textarea
+            name="entry.2606285"
+            placeholder="Message"
+          />
+
+          <Button type="submit" disabled={isSubmitting} className="w-full">
             {isSubmitting ? (
               <>
                 <Heart className="w-4 h-4 animate-pulse" />
@@ -86,7 +87,6 @@ export const RSVPSection = () => {
               </>
             )}
           </Button>
-
         </form>
       </div>
     </section>

@@ -1,38 +1,13 @@
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
-import { Heart, Calendar, MapPin, Sparkles } from "lucide-react";
 
-const timeline = [
-{
-  icon: Heart,
-  date: "January 2020",
-  title: "We First Met",
-  description:
-  "Our paths crossed at a mutual friend's gathering. Little did we know, this chance meeting would change our lives forever."
-},
-{
-  icon: Calendar,
-  date: "June 2020",
-  title: "Our First Date",
-  description:
-  "A simple dinner turned into hours of conversation. We knew there was something special between us."
-},
-{
-  icon: MapPin,
-  date: "December 2022",
-  title: "Moving In Together",
-  description:
-  "We took the next step in our journey, creating a home filled with love, laughter, and countless memories."
-},
-{
-  icon: Sparkles,
-  date: "February 2025",
-  title: "The Proposal",
-  description:
-  "Under a starlit sky, John asked Stephanie to spend forever together. With tears of joy, she said yes!"
-}];
-
+const pantoneColors = [
+  { color: "#bed1f3", label: "Light Blue" },
+  { color: "#f9e782", label: "Pastel Yellow" },
+  { color: "#f3e1dc", label: "Light Peach" },
+  { color: "#b3bc8f", label: "Lush Green" },
+];
 
 export const OurStorySection = () => {
   const ref = useRef(null);
@@ -40,7 +15,6 @@ export const OurStorySection = () => {
 
   return (
     <section id="story" className="py-20 md:py-32 bg-card relative overflow-hidden">
-      {/* Decorative Background */}
       <div className="absolute top-0 left-0 w-full h-32 bg-gradient-to-b from-background to-transparent" />
       <div className="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-background to-transparent" />
 
@@ -50,56 +24,60 @@ export const OurStorySection = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8 }}
-          className="text-center mb-16">
-
+          className="text-center mb-16"
+        >
           <p className="font-sans text-sm tracking-[0.3em] uppercase text-muted-foreground mb-4">
-            How It All Began
+            Our Colors
           </p>
-          <h2 className="font-script text-5xl md:text-7xl mb-6 text-[#b49350]" style={{ color: '#b49350' }}>
-            Our Story
+          <h2 className="font-script text-5xl md:text-7xl mb-6" style={{ color: '#b49350' }}>
+            Wedding Pantone
           </h2>
           <p className="font-serif text-lg md:text-xl text-foreground/70 max-w-2xl mx-auto leading-relaxed">
-            Every love story is beautiful, but ours is our favorite. Here's a
-            glimpse into the journey that brought us together.
+            Our chosen palette features soft light blue, pastel yellow, light peach and lush green.
+            These colors evoke romance, sophistication, and a touch of modern elegance.
           </p>
         </motion.div>
 
-        {/* Timeline */}
-        <div className="max-w-3xl mx-auto">
-          {timeline.map((item, index) =>
-          <motion.div
-            key={item.title}
-            initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
-            animate={isInView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.6, delay: index * 0.2 }}
-            className="relative flex gap-6 pb-12 last:pb-0">
-
-              {/* Timeline Line */}
-              <div className="flex flex-col items-center">
-                <div className="w-12 h-12 rounded-full bg-primary flex items-center justify-center shadow-elegant">
-                  <item.icon className="w-5 h-5 text-foreground" />
-                </div>
-                {index < timeline.length - 1 &&
-              <div className="w-0.5 flex-1 bg-gradient-to-b from-primary to-secondary/30 mt-4" />
-              }
+        {/* Color Circles */}
+        <div className="flex flex-wrap justify-center items-center gap-8 md:gap-12 max-w-3xl mx-auto">
+          {pantoneColors.map((item, index) => (
+            <motion.div
+              key={item.label}
+              initial={{ opacity: 0, scale: 0.5 }}
+              animate={isInView ? { opacity: 1, scale: 1 } : {}}
+              transition={{ duration: 0.6, delay: index * 0.15 }}
+              className="flex flex-col items-center gap-3"
+            >
+              {/* Painted circle effect */}
+              <div className="relative w-28 h-28 md:w-36 md:h-36">
+                {/* Outer sketchy ring */}
+                <div
+                  className="absolute inset-0 rounded-full opacity-40"
+                  style={{
+                    border: `3px solid ${item.color}`,
+                    transform: "rotate(-5deg) scale(1.08)",
+                  }}
+                />
+                <div
+                  className="absolute inset-0 rounded-full opacity-30"
+                  style={{
+                    border: `2px solid ${item.color}`,
+                    transform: "rotate(3deg) scale(1.12)",
+                  }}
+                />
+                {/* Main filled circle */}
+                <div
+                  className="w-full h-full rounded-full shadow-soft"
+                  style={{ backgroundColor: item.color }}
+                />
               </div>
-
-              {/* Content */}
-              <div className="flex-1 pb-8">
-                <span className="font-sans text-xs tracking-wider uppercase text-secondary">
-                  {item.date}
-                </span>
-                <h3 className="font-serif text-2xl md:text-3xl text-foreground mt-1 mb-3">
-                  {item.title}
-                </h3>
-                <p className="font-sans text-foreground/70 leading-relaxed">
-                  {item.description}
-                </p>
-              </div>
+              <span className="font-sans text-xs tracking-wider uppercase text-muted-foreground">
+                {item.label}
+              </span>
             </motion.div>
-          )}
+          ))}
         </div>
       </div>
-    </section>);
-
+    </section>
+  );
 };

@@ -59,7 +59,10 @@ export const Footer = () => {
 
           {/* Copyright */}
           <p className="font-sans text-xs text-foreground/50">
-            Made with love for our special day
+            Made with love for our special day • Developed by{' '}
+            <a href="https://aly071.github.io/aly071-v1/" target="_blank" rel="noopener noreferrer" className="underline hover:text-foreground/70">
+              Nathaly Pearl F. Salanatin
+            </a>
           </p>
         </motion.div>
       </div>

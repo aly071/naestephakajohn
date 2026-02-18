@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { ChevronDown, Heart } from "lucide-react";
+import { Heart } from "lucide-react";
 export const HeroSection = () => {
   return <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Background Pattern */}
@@ -97,7 +97,7 @@ export const HeroSection = () => {
           duration: 1.5,
           repeat: Infinity
         }}>
-            <ChevronDown className="w-5 h-5 rounded-sm" />
+            
           </motion.div>
         </motion.a>
       </div>

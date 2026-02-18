@@ -17,7 +17,7 @@ export const Footer = () => {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center">
+          className="text-center"> 
 
           {/* Couple Names */}
           <h2 className="font-script text-4xl mb-4 md:text-6xl" style={{ color: '#b49350' }}>
@@ -54,7 +54,7 @@ export const Footer = () => {
 
           {/* Hashtag */}
           <p className="font-sans text-sm tracking-wider text-foreground/70 mb-6">
-            #JohnAndStephanie2025
+            #JohnAndStephanieTBA
           </p>
 
           {/* Copyright */}

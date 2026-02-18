@@ -52,9 +52,15 @@ export const RSVPSection = () => {
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           className="text-center mb-12"
         >
+          <p className="font-sans text-sm tracking-[0.3em] uppercase text-muted-foreground mb-4">
+            KINDLY RESPOND
+          </p>
           <h2 className="font-script text-5xl md:text-7xl text-[#b49350]">
             RSVP
           </h2>
+          <p className="font-serif text-lg text-foreground/70 max-w-xl mx-auto">
+            Please let us know if you’ll be joining us on our special day.
+          </p>
         </motion.div>
 
         <motion.form

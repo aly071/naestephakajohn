@@ -46,17 +46,30 @@ export const GuestbookSection = () => {
     <section id="guestbook" className="py-20 bg-card">
       <div className="container mx-auto px-4">
 
-        <motion.form
-          onSubmit={handleSubmit}
+        <motion.div
           ref={ref}
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.8 }}
+          className="text-center mb-12"
+        >
+          <p className="font-sans text-sm tracking-[0.3em] uppercase text-muted-foreground mb-4">
+            Leave Your Wishes
+          </p>
+          <h2 className="font-script text-5xl md:text-7xl mb-6" style={{ color: '#b49350' }}>
+            Guestbook
+          </h2>
+          <p className="font-serif text-lg text-foreground/70 max-w-2xl mx-auto">
+            Share your love, blessings, and well-wishes with us. We treasure every message from our loved ones.
+          </p>
+        </motion.div>
+
+        <motion.form
+          onSubmit={handleSubmit}
+          initial={{ opacity: 0, y: 40 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
           className="max-w-xl mx-auto bg-background rounded-2xl p-8 shadow-elegant border space-y-5"
         >
-          <h3 className="font-serif text-2xl flex items-center gap-3">
-            <MessageCircle className="w-6 h-6 text-primary" />
-            Send Your Wishes
-          </h3>
 
           <Input name="name" placeholder="Your Name" required />
           <Input name="email" type="email" placeholder="Email (optional)" />

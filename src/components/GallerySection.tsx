@@ -88,7 +88,7 @@ export const GallerySection = () => {
             <Heart className="w-4 h-4 text-foreground" />
             <p className="font-sans text-sm text-foreground/80">
               Share your wedding photos with us using{" "}
-              <span className="font-medium" style={{ color: 'hsl(216, 60%, 55%)' }}>#JohnAndStephanie2025</span>
+              <span className="font-medium" style={{ color: 'hsl(216, 60%, 55%)' }}>#JohnAndStephanieTBA</span>
             </p>
           </div>
         </motion.div>

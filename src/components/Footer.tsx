@@ -24,7 +24,7 @@ export const Footer = () => {
             John & Stephanie
           </h2>
           <p className="font-serif text-lg text-foreground/80 mb-6">
-            December 28, 2025
+            TBA
           </p>
 
           {/* Heart Divider */}
